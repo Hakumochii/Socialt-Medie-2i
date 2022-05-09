@@ -46,6 +46,7 @@ def show_posts(posts=[], user=None):
                         img(src=app.url_for('static',
                                             name='static',
                                             filename=f'images/posts/{display_post.post.image_path}'))
+                        p("Et billede siger mere end 1000 ord")
 
     return doc.render()
 
@@ -84,6 +85,8 @@ def create_page():
         link(rel='stylesheet', href=app.url_for('static',
                                                 name='static',
                                                 filename='style.css'))
+    
+
 
     with doc:
         menu_items = [

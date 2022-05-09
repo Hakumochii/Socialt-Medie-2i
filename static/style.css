@@ -28,6 +28,7 @@ a.button {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid black;
+    background-color: rgb(194, 250, 189);
 }
 
 .post .title_inp {
