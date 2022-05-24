@@ -1,3 +1,4 @@
+from fileinput import filename
 from urllib.parse import quote
 import dominate
 from dominate.tags import *
@@ -16,10 +17,12 @@ def show_posts(posts=[], user=None):
     with doc.head:
         link(rel='stylesheet', href=app.url_for('static',
                                                 name='static',
-                                                filename='style.css'))
+                                                filename='Frontpage.css'))
 
     with doc:
-        menu_items = [
+        with div(cls="header"):
+            img(id="logo" src=app.url_for('static',name='static',filename="images/Logo.png"))
+            menu_items = [
             ('Forside', '/'),
             ('Log ud', '/logout'),
             ('Ny post', '/write'),
@@ -29,6 +32,8 @@ def show_posts(posts=[], user=None):
         show_menu(menu_items)
         if user is not None:
             userprofile.user_profile(user)
+        hr(cls="line")
+        
         for display_post in posts:
             with div(cls='post'):
                 h1(display_post.post.title)
@@ -46,7 +51,8 @@ def show_posts(posts=[], user=None):
                         img(src=app.url_for('static',
                                             name='static',
                                             filename=f'images/posts/{display_post.post.image_path}'))
-
+        
+        
     return doc.render()
 
 def create_image_page():
