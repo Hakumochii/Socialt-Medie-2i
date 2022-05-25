@@ -11,7 +11,7 @@ def login_page():
     with doc.head:
         link(rel='stylesheet', href=app.url_for('static',
                                                 name='static',
-                                                filename='style.css'))
+                                                filename='Login.css'))
 
     with doc:
         h1("Log ind", cls='page_header')

@@ -31,11 +31,15 @@ def edit_profile(user):
                                                 filename='style.css'))
     
     with doc:
-        menu_items = [
-            ('Forside', '/'),
-            ('Log ud', '/logout'),
-            ('Ny post', '/write'),
-            ('Nyt billede', '/upload'),
+        with div(cls="header"):
+            with div(cls="logo"):
+                img(src=app.url_for('static', name='static', filename='images/Logo.png'))
+            menu_items = [
+            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
+            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
         ]
         show_menu(menu_items)
         with form(cls='profile-form', enctype='multipart/form-data', method='POST', action='/update_profile'):

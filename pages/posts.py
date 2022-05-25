@@ -21,19 +21,31 @@ def show_posts(posts=[], user=None):
 
     with doc:
         with div(cls="header"):
-            img(id="logo" src=app.url_for('static',name='static',filename="images/Logo.png"))
+            with div(cls="logo"):
+                img(src=app.url_for('static', name='static', filename='images/Logo.png'))
             menu_items = [
-            ('Forside', '/'),
-            ('Log ud', '/logout'),
-            ('Ny post', '/write'),
-            ('Nyt billede', '/upload'),
-            ('Rediger profil', '/profile')
+            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
+            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
         ]
-        show_menu(menu_items)
-        if user is not None:
-            userprofile.user_profile(user)
-        hr(cls="line")
+            
+            show_menu(menu_items)
+            if user is not None:
+                userprofile.user_profile(user)
         
+        hr(cls="line")
+
+        with div(cls="Content2"):
+            with div(cls="searchbar"):
+                p("Søg...")
+            with div(cls="fællesskabsmenu"):
+                h2("Fællesskaber")
+                p("Fællesskab1")
+                p("Fællesskab1")
+                p("Fællesskab1")
+
         for display_post in posts:
             with div(cls='post'):
                 h1(display_post.post.title)
@@ -51,6 +63,8 @@ def show_posts(posts=[], user=None):
                         img(src=app.url_for('static',
                                             name='static',
                                             filename=f'images/posts/{display_post.post.image_path}'))
+            
+        
         
         
     return doc.render()
@@ -65,11 +79,15 @@ def create_image_page():
                                                 filename='style.css'))
 
     with doc:
-        menu_items = [
-            ('Forside', '/'),
-            ('Log ud', '/logout'),
-            ('Ny post', '/write'),
-            ('Rediger profil', '/profile')
+        with div(cls="header"):
+            with div(cls="logo"):
+                img(src=app.url_for('static', name='static', filename='images/Logo.png'))
+            menu_items = [
+            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
+            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
         ]
         show_menu(menu_items)
         with form(cls='post-form', enctype='multipart/form-data', method='POST', action='/post/image'):
@@ -92,11 +110,15 @@ def create_page():
                                                 filename='style.css'))
 
     with doc:
-        menu_items = [
-            ('Forside', '/'),
-            ('Log ud', '/logout'),
-            ('Nyt billede', '/upload'),
-            ('Rediger profil', '/profile')
+        with div(cls="header"):
+            with div(cls="logo"):
+                img(src=app.url_for('static', name='static', filename='images/Logo.png'))
+            menu_items = [
+            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
+            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
         ]
         show_menu(menu_items)
         with form(cls='post-form', method='POST', action='/post/text'):
