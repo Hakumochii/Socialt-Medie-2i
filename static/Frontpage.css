@@ -15,11 +15,6 @@
     width: 150px;
 }
   
-.icons {
-    height: 50px;
-    width: auto;
-}
-  
 .line{
     position: relative;
     top: 0;
@@ -44,7 +39,7 @@
     display: inline-block;
     position: relative;
     left: 750px;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .menu ul{
