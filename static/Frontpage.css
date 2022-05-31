@@ -4,15 +4,17 @@
 }
 
 .header{
-    display: inline-flex;
-    position: relative;
-    left: 7%;
+	width: 1920px;
+	height: 110px;
+	background: #E3EFEC;
+	box-shadow: 0px 5px 10px #0000000A;
+	position: fixed;
 }
 
 .logo img{
-    position: relative;
-    right: -7%;
-    width: 150px;
+	margin-top: 9px;
+	margin-left: 76px;
+	height: 90px;
 }
   
 .line{
@@ -79,6 +81,7 @@
     display: inline-block;
     text-align: left;
     margin-top: 20px;
+	position: fixed;
 }
 
 .fællesskabsmenu{
@@ -90,5 +93,6 @@
   text-align: center;
   margin-bottom: 5px;
   margin-top: 5px;
+  position: fixed;
 }
 

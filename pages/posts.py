@@ -24,11 +24,11 @@ def show_posts(posts=[], user=None):
             with div(cls="logo"):
                 img(src=app.url_for('static', name='static', filename='images/Logo.png'))
             menu_items = [
-            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
-            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
+            (app.url_for('static', name='static', filename='images/Home.png'), '/', 'home_icon'),
+            (app.url_for('static', name='static', filename='images/Notifikation.png'), '/logout','heart_icon'),
+            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write','post_icon'),
+            (app.url_for('static', name='static', filename='images/Beskeder.png'), '/upload','pesked_icon'),
+            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','profil_icon')
         ]
             
             show_menu(menu_items)
