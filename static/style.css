@@ -60,15 +60,9 @@ a.button {
 	width: 140px;
 }
 
-.logo img{
-	margin-top: 4px;
-	margin-left: 48px;
-	width: 140px;
-}
 .top_menu {
 	margin-left: 950px;
 	margin-top: -95px;
-	position: fixed;
 }
 
 .menu ul{
