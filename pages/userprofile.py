@@ -34,13 +34,14 @@ def edit_profile(user):
         with div(cls="header"):
             with div(cls="logo"):
                 img(src=app.url_for('static', name='static', filename='images/Logo.png'))
-            menu_items = [
-            (app.url_for('static', name='static', filename='images/Home.png'), '/', ''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/logout',''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write',''),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/upload',''),
-            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','Profil')
-        ]
+            with div(cls="top_menu"):
+                menu_items = [
+                (app.url_for('static', name='static', filename='images/Home.png'), '/', 'home_icon'),
+                (app.url_for('static', name='static', filename='images/Notifikation.png'), '/logout','heart_icon'),
+                (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write','post_icon'),
+                (app.url_for('static', name='static', filename='images/Beskeder.png'), '/upload','besked_icon'),
+                (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','profile_icon')
+            ]
         show_menu(menu_items)
         with form(cls='profile-form', enctype='multipart/form-data', method='POST', action='/update_profile'):
             with div(id='profile-info'):
