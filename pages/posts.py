@@ -23,24 +23,25 @@ def show_posts(posts=[], user=None):
         with div(cls="header"):
             with div(cls="logo"):
                 img(src=app.url_for('static', name='static', filename='images/Logo.png'))
-            menu_items = [
-            (app.url_for('static', name='static', filename='images/Home.png'), '/', 'home_icon'),
-            (app.url_for('static', name='static', filename='images/Notifikation.png'), '/logout','heart_icon'),
-            (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write','post_icon'),
-            (app.url_for('static', name='static', filename='images/Beskeder.png'), '/upload','pesked_icon'),
-            (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','profil_icon')
-        ]
+            with div(cls='top_menu'):
+                menu_items = [
+                (app.url_for('static', name='static', filename='images/Home.png'), '/', 'home_icon'),
+                (app.url_for('static', name='static', filename='images/Notifikation.png'), '/logout','heart_icon'),
+                (app.url_for('static', name='static', filename='images/OpretPost.png'), '/write','post_icon'),
+                (app.url_for('static', name='static', filename='images/Beskeder.png'), '/upload','besked_icon'),
+                (app.url_for('static', name='static', filename='images/Profil.png'), '/profile','profile_icon')
+            ]
             
-            show_menu(menu_items)
-            if user is not None:
-                userprofile.user_profile(user)
+                show_menu(menu_items)
+                if user is not None:
+                    userprofile.user_profile(user)
         
         hr(cls="line")
 
         with div(cls="Content2"):
             with div(cls="searchbar"):
                 p("Søg...")
-            with div(cls="fællesskabsmenu"):
+            with div(cls="menu2"):
                 h2("Fællesskaber")
                 p("Fællesskab1")
                 p("Fællesskab1")
@@ -59,7 +60,7 @@ def show_posts(posts=[], user=None):
                         for par in lines:
                             p(par)
                 else: # image post
-                    with div():
+                    with div(cls='image_in_post'):
                         img(src=app.url_for('static',
                                             name='static',
                                             filename=f'images/posts/{display_post.post.image_path}'))
