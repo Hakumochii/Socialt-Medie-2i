@@ -48,22 +48,34 @@ def show_posts(posts=[], user=None):
 
         for display_post in posts:
             with div(cls='post'):
-                h1(display_post.post.title)
-                with div(cls='author'):
-                    a(f'af: {display_post.author.username}',
-                        href=f'/u/{quote(display_post.author.username)}',
-                        cls='author_link')
-                if isinstance(display_post.post, post.TextPost): # text post
-                    with div():
-                        lines = filter(bool, display_post.post.contents.splitlines())
-                        for par in lines:
-                            p(par)
-                else: # image post
-                    with div(cls='image_in_post'):
-                        img(src=app.url_for('static',
-                                            name='static',
-                                            filename=f'images/posts/{display_post.post.image_path}'))
+                
+                with div(cls='post-header'):
+                
+                    with div(cls='profie-post'):
+                        a(img(src=app.url_for('static', name='static', filename='images/profilbillede-post.png')), href=f'/u/{quote(display_post.author.username)}')
+                
+                    with div(cls='author_name'):   
+                        a(f'{display_post.author.username}', href=f'/u/{quote(display_post.author.username)}')
             
+                    with div(cls='report-post'):
+                        img(src=app.url_for('static', name='static', filename='images/report.png'), id='report')
+                
+                with div(cls='post_contents'):
+                    h1(display_post.post.title)
+                    
+                    img(src=app.url_for('static', name='static', filename='images/line.png'), id='line_post')
+                    
+                    if isinstance(display_post.post, post.TextPost): # text post
+                        with div():
+                            lines = filter(bool, display_post.post.contents.splitlines())
+                            for par in lines:
+                                p(par)
+                    else: # image post
+                        with div(cls='image_in_post'):
+                            img(src=app.url_for('static', name='static',filename=f'images/posts/{display_post.post.image_path}'))
+                    
+                    with div(cls='post_bottom'):
+                        img(src=app.url_for('static', name='static', filename='images/post-bottom.png'))
         
         
         
