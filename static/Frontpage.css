@@ -104,7 +104,7 @@ a{
 
 .image_in_post img{
 	width: 610px;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .top_menu{
@@ -153,8 +153,8 @@ a{
     position: relative;
     right: -73%;
     margin-bottom: -127px;
-    margin-top: 160px;
 	margin-left: -95px;
+	margin-top: -60px;
 }
 
 .searchbar{
@@ -189,5 +189,10 @@ a{
 
 body {
 	background-color: #B7D8DF;
+}
+
+.box p{
+	margin-top: 185px;
+	color: #B7D8DF;
 }
 

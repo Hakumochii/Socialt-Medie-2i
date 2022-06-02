@@ -37,6 +37,10 @@ def show_posts(posts=[], user=None):
                     userprofile.user_profile(user)
         
         hr(cls="line")
+        
+        with div(cls='box'):
+            p('box')
+        
 
         with div(cls="Content2"):
             with div(cls="searchbar"):
