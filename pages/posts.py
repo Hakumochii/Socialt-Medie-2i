@@ -63,13 +63,17 @@ def show_posts(posts=[], user=None):
                 with div(cls='post_contents'):
                     h1(display_post.post.title)
                     
-                    img(src=app.url_for('static', name='static', filename='images/line.png'), id='line_post')
-                    
                     if isinstance(display_post.post, post.TextPost): # text post
+                        
+                        img(src=app.url_for('static', name='static', filename='images/line.png'), id='line_post_top')
+                        
                         with div():
                             lines = filter(bool, display_post.post.contents.splitlines())
                             for par in lines:
                                 p(par)
+                        
+                                img(src=app.url_for('static', name='static', filename='images/line.png'), id='line_post_bottom')
+                        
                     else: # image post
                         with div(cls='image_in_post'):
                             img(src=app.url_for('static', name='static',filename=f'images/posts/{display_post.post.image_path}'))
