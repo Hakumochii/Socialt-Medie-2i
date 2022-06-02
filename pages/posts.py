@@ -23,7 +23,7 @@ def show_posts(posts=[], user=None):
         with div(cls="header"):
             with div(cls="logo"):
                 img(src=app.url_for('static', name='static', filename='images/Logo.png'))
-            with div(cls='top_menu'):
+            with div(cls="top_menu"):
                 menu_items = [
                 (app.url_for('static', name='static', filename='images/Home.png'), '/', 'home_icon'),
                 (app.url_for('static', name='static', filename='images/Notifikation.png'), '/logout','heart_icon'),
@@ -40,12 +40,11 @@ def show_posts(posts=[], user=None):
 
         with div(cls="Content2"):
             with div(cls="searchbar"):
-                p("Søg...")
+                img(src=app.url_for('static', name='static', filename='images/search.png'))
             with div(cls="menu2"):
-                h2("Fællesskaber")
-                p("Fællesskab1")
-                p("Fællesskab1")
-                p("Fællesskab1")
+                img(src=app.url_for('static', name='static', filename='images/fællesskaber.png'))
+            with div(cls="fox_mascot"):
+                img(src=app.url_for('static', name='static', filename='images/Fox.png'))
 
         for display_post in posts:
             with div(cls='post'):
